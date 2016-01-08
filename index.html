@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ForgeFuel Minecraft Mod Wizard</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="Description" content="ForgeFuel generates Minecraft Mod code, so you don't have to!" />
+	<meta name="Keywords" content="minecraft, forge, fuel, forgefuel, mod, modding, moding, code, coding, programing, programming, custom, items, armor, weapons, blocks, crafting,
+	craft, mine" />
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/forgefuel.css">
+	<link rel="stylesheet" href="css/jumbotron-narrow.css">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/aclist.js"></script>
+
+</head>
+
+<body>
+	<!--<div id="sidebar"> 
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:300px;height:600px"
+		     data-ad-client="ca-pub-9621963391419295"
+		     data-ad-slot="7450432161"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div> <!-- SIDEBAR -->
+
+	<div id="content" class="container"> <!-- CONTENT -->
+
+		<div id="header" class="container"> <!-- HEADER -->
+			<h1>ForgeFuel Minecraft Mod Wizard</h1>
+			<br>
+			<p><!-- spacer --></p> 
+		</div> <!-- HEADER -->
+		
+		<div id="pills"><!--PILLS--> 
+		  <ul class="nav nav-tabs">
+		    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+		    <li><a data-toggle="pill" href="#craft">Crafting Recipes</a></li>
+		    <li><a data-toggle="pill" href="#item">Basic Items</a></li>
+		    <li><a data-toggle="pill" href="#block">Basic Blocks</a></li>
+		    <li><a data-toggle="pill" href="#ore">Ore Blocks</a></li>
+		   <!--  <li><a data-toggle="pill" href="#food">Custom Foods</a></li>
+		    <li><a data-toggle="pill" href="#tool">Custom Tools</a></li>
+		    <li><a data-toggle="pill" href="#armor">Custom Armor</a></li>
+		    <li><a data-toggle="pill" href="#world">World Generation</a></li> -->
+		  </ul>
+		</div><!--PILLS-->
+			
+		<div id="body" class="tab-content"><!--BODY--> 
+		    <!--Home Page-->
+		    <div id="home" class="tab-pane fade in active">
+	 			<h3>Develop Custom Minecraft Mods, Without the Hassle!</h3>
+	  			<p>
+	  				ForgeFuel is a code generation utility for use with the Minecraft Forge API.<br>
+	  				Simply copy and paste generated code snippets into your Java files!<br>
+
+	  			</p>
+	  			<h3>Setup</h3>
+	  			<p>
+	  				Requires Minecraft 1.8 Forge Development Environment. <a href="http://www.minecraftforge.net/wiki/Installation/Source"> See the official Forge Guide. </a><br><br>
+	  				Download our <a href="files/package.zip">template src folder.</a> This includes the custom functions used in the generated code, as well as examples and commented instructions. 
+	  			</p>
+			</div><!--Home Page-->
+
+			<!--Crafting Page-->
+		    <div id="craft" class="tab-pane fade">
+				<!--
+				Crafting Tab. To-Do:
+				Add metadata support for inputs-->
+			    <h2>Custom Crafting Recipes</h2>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+			        	<h3>3x3 Shaped Recipe:</h3>
+			        </div>
+					<div class="panel-body">
+						<label for="3x3output">Output: </label><br>
+						<input id="3x3output"> <label> x </label> <input id="3x3outputCount" style="width:22px" value="1"> <label> Meta: </label> 
+						<input id="3x3outputMeta" style="width:22px" value="0"><br>
+						<label>Input:</label><br>
+						<span class="nowrap"><input id="3x3in1"><input id="3x3in2"><input id="3x3in3"><br>
+						<input id="3x3in4"><input id="3x3in5"><input id="3x3in6"><br>
+						<input id="3x3in7"><input id="3x3in8"><input id="3x3in9"><br></span>
+						<p></p>
+						<p>
+							<strong>Add to ModCrafting.java: </strong><input type="button" class="btn btn-sm btn-primary" onclick="recipeUpdate3x3();" value="Update">
+							<input type="button" class="btn btn-sm btn-primary" onclick="recipeClear3x3();" value="Clear"><br>
+						</p>
+						<pre><div id="out" style="margin:7px; font-family:Courier New; font-size:130%;";></div></pre>
+					</div>
+			    </div>
+
+		  		<h3><br></h3>
+		  		
+		  		<div class="panel panel-default">
+		  			<div class="panel-heading">
+			        	<h3>2x2 Shaped Recipe:</h3>
+			        </div>
+			        <div class="panel-body">
+		         		<label for="2x2output">Output: </label>
+						<input id="2x2output"> <label> x </label> <input id="2x2outputCount" style="width:22px" value="1"> <label> Meta: </label> 
+						<input id="2x2outputMeta" style="width:22px" value="0"><br>
+						<label for="2x2in1">Input:</label><br>
+						<span class="nowrap">
+							<input id="2x2in1"><input id="2x2in2"><br>
+							<input id="2x2in3"><input id="2x2in4"><br>
+						</span>
+						<p></p>
+						<p>
+							<strong>Add to ModCrafting.java: </strong><input type="button" class="btn btn-sm btn-primary" onclick="recipeUpdate2x2();" value="Update">
+							<input type="button" class="btn btn-sm btn-primary" onclick="recipeClear2x2();" value="Clear"><br>
+						</p>
+						<pre><div id="outSmall" style="margin:7px; font-family:Courier New; font-size:130%;";></div></pre>
+					</div>
+				</div>
+
+				<h3><br></h3>
+				<div class="panel panel-default">
+		  			<div class="panel-heading">
+			        	<h3>Shapeless Recipe:</h3>
+			        </div>
+			        <div class="panel-body">
+						
+						<label for="shapelessOutput">Output: </label>
+						<input id="shapelessOutput"> <label> x </label> <input id="shapelessOutputCount" style="width:22px" value="1"> <label> Meta: </label> 
+						<input id="shapelessOutputMeta" style="width:22px" value="0"><br>
+						<label for="shapelessIn1">Input (location does not matter):</label><br>
+						<span class="nowrap">
+							<input id="shapelessIn1"><input id="shapelessIn2"><input id="shapelessIn3"><br>
+							<input id="shapelessIn4"><input id="shapelessIn5"><input id="shapelessIn6"><br>
+							<input id="shapelessIn7"><input id="shapelessIn8"><input id="shapelessIn9"><br>
+						</span>
+						<p></p>
+						<p>
+							<strong>Add to ModCrafting.java: </strong><input type="button" class="btn btn-sm btn-primary" onclick="recipeUpdateShapeless();" value="Update">
+							<input type="button" class="btn btn-sm btn-primary" onclick="recipeClearShapeless();" value="Clear"><br>
+						</p>
+						<pre><div id="outShapeless" style="margin:7px; font-family:Courier New; font-size:130%;";></div></pre>
+					</div>
+				</div>
+
+				<h3><br></h3>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+			        	<h3>Smelting Recipe:</h3>
+			        </div>
+					<div class="panel-body">
+						<label for="smeltOutput">Output: </label>
+						<input id="smeltOutput"> <label> x </label> <input id="smeltOutputCount" style="width:22px" value="1"> <label> Meta: </label> 
+						<input id="smeltOutputMeta" style="width:22px" value="0"><br>
+						<p>
+						<span class="nowrap">
+							<label for="amount">Experience:</label>
+							<input type="text" id="amount" readonly style="border:0; color:#337AB7; font-weight:bold;">
+	 						<div id="craftingExpSlider" style="width:100px; background-color:#337AB7;"></div>
+						</p>
+						<label for="smeltInput">Input (location does not matter):</label><br>
+							<input id="smeltInput">
+						</span>
+						<p></p>
+						<p>
+							<strong>Add to ModCrafting.java: </strong><input type="button" class="btn btn-sm btn-primary" onclick="recipeUpdateSmelting();" value="Update">
+							<input type="button" class="btn btn-sm btn-primary" onclick="recipeClearSmelting();" value="Clear"><br>
+						</p>
+						<pre><div id="outSmelting" style="margin:7px; font-family:Courier New; font-size:130%;";></div></pre></p>
+					</div>
+				</div>
+			</div><!--Crafting Page-->
+
+			<!--Item Page-->
+			<div id="item" class="tab-pane fade">
+				<h3>Custom Basic Items</h3><br>
+				<label>Item Name: &nbsp;</label><input id="iname"> 
+	  			<input type="button" class="btn btn-sm btn-primary" onclick="updateItemPage();" value="Update">
+
+			  	<p>
+			  		<strong>Add to ModItems.java: </strong><br>
+
+					<pre>
+					<div id="itemDeclaration" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Add to ModItems.java: </strong><br>
+
+					<pre>
+					<div id="itemRegistration" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Add to ItemRenderRegister.java: </strong><br>
+
+					<pre>
+					<div id="itemRender" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Download and insert in package assets.mod.models.item: </strong><br>
+
+					<pre>
+					<div id="itemJSON" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+				<p>
+					<strong>Create a Texture and insert into package assets.mod.textures.item: </strong><br>
+					
+					<pre>
+						<div id="itemTextures" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					<!-- <b>Open image editor overlay</b><br />
+						<a href="javascript:pixlr.overlay.show({image:'http://forgefuel.net/images/16.jpg', title:'"+nameSimplify(document.getElementById("iname").value) +".png', service:'editor'});"><img src="http://forgefuel.net/images/16.jpg" width="80" height="80" title="Edit in pixlr" /></a><br /><br />
+						<br /><br /> -->
+						
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Add to en_US.lang in package assets.mod.lang: </strong>
+					
+					<pre>
+						<div id="itemLang" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					<!-- <b>Open image editor overlay</b><br />
+						<a href="javascript:pixlr.overlay.show({image:'http://forgefuel.net/images/16.jpg', title:'"+nameSimplify(document.getElementById("iname").value) +".png', service:'editor'});"><img src="http://forgefuel.net/images/16.jpg" width="80" height="80" title="Edit in pixlr" /></a><br /><br />
+						<br /><br /> -->
+						
+					</div>
+					</pre>
+				</p>
+		    </div><!--Item Page-->
+
+		    <!--Food Page-->
+			<div id="food" class="tab-pane fade">
+		    	<h3>Custom Food Items</h3>
+		    	<p></p>
+		    </div><!--Food Page-->
+
+		    <!--Tool Page-->
+			<div id="tool" class="tab-pane fade">
+		    	<h3>Custom Tools</h3>
+		    	<p>Coming Soon</p>
+		    </div><!--Tool Page-->
+
+		    <!--Armor Page-->
+			<div id="armor" class="tab-pane fade">
+		    	<h3>Custom Armor</h3>
+		    	<p>Coming Soon</p>
+		    </div><!--Armor Page-->
+
+		    <!--Block Page-->
+			<div id="block" class="tab-pane fade">
+		    	<h3>Custom Basic Blocks</h3>
+		    	<label>Block Name: &nbsp;</label><input id="bname"> 
+			  	<input type="button" class="btn btn-sm btn-primary" onclick="updateBlockPage();" value="Update">
+				<p>
+			  		<strong>Add to ModBlocks.java: </strong><br>
+					<pre>
+					<div id="blockDeclaration" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Add to ModBlocks.java: </strong><br>
+					<pre>
+					<div id="blockRegistration" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Add to BlockRenderRegister.java: </strong><br>
+					<pre>
+						<div id="blockRender" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Download and insert in package assets.mod.blockstates: </strong><br>
+					<pre>
+						<div id="blockJSONa" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+				
+				<p>
+					<strong>Download and insert in package assets.mod.models.block: </strong><br>
+					<pre>
+					<div id="blockJSONb" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+				
+				<p>
+					<strong>Download and insert in package assets.mod.models.item: </strong><br>
+					<pre>
+					<div id="blockJSONc" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Create a Texture and insert into package assets.mod.textures.block: </strong><br>
+					
+					<pre>
+						<div id="blockTextures" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					<!-- <b>Open image editor overlay</b><br />
+						<a href="javascript:pixlr.overlay.show({image:'http://forgefuel.net/images/16.jpg', title:'"+nameSimplify(document.getElementById("iname").value) +".png', service:'editor'});"><img src="http://forgefuel.net/images/16.jpg" width="80" height="80" title="Edit in pixlr" /></a><br /><br />
+						<br /><br /> -->
+						
+					</div>
+					</pre>
+				</p>
+
+				<p>
+					<strong>Add to en_US.lang in package assets.mod.lang: </strong>
+					
+					<pre>
+						<div id="blockLang" style="margin:7px; font-family:Courier New; font-size:130%;";>
+					<!-- <b>Open image editor overlay</b><br />
+						<a href="javascript:pixlr.overlay.show({image:'http://forgefuel.net/images/16.jpg', title:'"+nameSimplify(document.getElementById("iname").value) +".png', service:'editor'});"><img src="http://forgefuel.net/images/16.jpg" width="80" height="80" title="Edit in pixlr" /></a><br /><br />
+						<br /><br /> -->
+						
+					</div>
+					</pre>
+				</p>
+		    </div><!--Block Page-->
+
+			<!--Ore Page-->
+			<div id="ore" class="tab-pane fade">
+		    	<h3>Custom Ores</h3>	
+		    	<label for="orename">Ore Name: &nbsp;</label>
+			    <input id="orename">
+		    	<label for="oredrop"> &nbsp;Drops:</label>
+		    	<input id="oredrop"> 
+		    	<label for="oremin">x</label>
+		    	<input id="oremin" style="width:20px" value="0">
+		    	<label for="oremax">-</label>
+		    	<input id="oremax"style="width:20px" value="1"> 
+			  	<input type="button" class="btn btn-sm btn-primary" onclick="updateOrePage();" value="Update">
+				  	<p>
+				  		<strong>Add to ModBlocks.java: </strong><br>
+						<pre>
+						<div id="oreDeclaration" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						</div>
+						</pre>
+					</p>
+
+					<p>
+						<strong>Add to ModBlocks.java: </strong><br>
+						<pre>
+						<div id="oreRegistration" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						</div>
+						</pre>
+					</p>
+
+					<p>
+						<strong>Add to BlockRenderRegister.java: </strong><br>
+						<pre>
+						<div id="oreRender" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						</div>
+						</pre>
+					</p>
+
+					<p>
+						<strong>Download and insert in package assets.mod.blockstates: </strong><br>
+						<pre>
+						<div id="oreJSONa" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						</div>
+						</pre>
+					</p>
+					
+					<p>
+						<strong>Download and insert in package assets.mod.models.block: </strong><br>
+						<pre>
+						<div id="oreJSONb" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						</div>
+						</pre>
+					</p>
+					
+					<p>
+						<strong>Download and insert in package assets.mod.models.item: </strong><br>
+						<pre>
+						<div id="oreJSONc" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						</div>
+						</pre>
+					</p>
+
+					<p>
+						<strong>Create a Texture and insert into package assets.mod.textures.block: </strong><br>
+						
+						<pre>
+							<div id="oreTextures" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						<!-- <b>Open image editor overlay</b><br />
+							<a href="javascript:pixlr.overlay.show({image:'http://forgefuel.net/images/16.jpg', title:'"+nameSimplify(document.getElementById("iname").value) +".png', service:'editor'});"><img src="http://forgefuel.net/images/16.jpg" width="80" height="80" title="Edit in pixlr" /></a><br /><br />
+							<br /><br /> -->
+							
+						</div>
+						</pre>
+					</p>
+
+					<p>
+						<strong>Add to en_US.lang in package assets.mod.lang: </strong>
+						
+						<pre>
+							<div id="oreLang" style="margin:7px; font-family:Courier New; font-size:130%;";>
+						<!-- <b>Open image editor overlay</b><br />
+							<a href="javascript:pixlr.overlay.show({image:'http://forgefuel.net/images/16.jpg', title:'"+nameSimplify(document.getElementById("iname").value) +".png', service:'editor'});"><img src="http://forgefuel.net/images/16.jpg" width="80" height="80" title="Edit in pixlr" /></a><br /><br />
+							<br /><br /> -->
+							
+						</div>
+						</pre>
+					</p>
+		    </div><!--Ore Page-->
+
+		    <!--World Page-->
+			<div id="world" class="tab-pane fade">
+		    	<h3>Custom World Generation</h3>
+		    	<p>Coming Soon</p>
+		    </div><!--Ore Page-->
+		</div><!--BODY-->
+
+		<div id="footer"><!--FOOTER-->
+		<footer class="footer">
+        	<p>&copy; 2016 Haydn Luker
+        	</p>
+
+      	</footer>	
+		</div><!--FOOTER-->
+	</div> <!-- CONTENT -->
+
+	<script src="js/forgefuel.js"></script>
+</body>
+</html>

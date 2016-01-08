@@ -1,0 +1,48 @@
+span.nowrap {
+    white-space:nowrap;
+}
+
+input {
+    width:140px;
+    font-size:100%
+}
+
+/*#header{
+    padding-left:0px;
+    padding-bottom:0px;
+    width: 1000px;
+    background-color: #F5F5F5;
+}*/
+
+html {
+    margin-left:50px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+}
+
+.ui-autocomplete {
+    max-height:200px;
+    overflow-y:auto;
+/* prevent horizontal scrollbar */
+    overflow-x:hidden
+}
+
+button {
+    width:80px;
+}
+
+/*#pills {
+    background-color: #F5F5F5;
+}
+*/
+#sidebar {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+}
+
+#content {
+    max-width:1000px;
+    margin:auto;
+}
